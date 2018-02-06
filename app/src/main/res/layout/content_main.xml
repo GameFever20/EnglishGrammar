@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="2"
+    android:background="@color/colorLightWhiteBg"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="app.english.grammar.craftystudio.englishgrammar.MainActivity"
+    tools:showIn="@layout/app_bar_main">
+
+
+    <ListView
+        android:id="@+id/topicActivity_topic_listview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:layout_marginTop="4dp"
+        android:layout_weight="1"
+        android:background="@color/colorLightWhiteBg"
+        android:divider="@color/colorTransparent"
+        android:dividerHeight="0dp">
+
+    </ListView>
+
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/colorPrimary"
+        android:visibility="gone"
+        app:itemIconTint="@color/colorWhiteBg"
+        app:itemTextColor="@color/colorWhiteBg"
+        app:menu="@menu/navigation" />
+
+
+</LinearLayout>

@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "551898202695",
+    "firebase_url": "https://english-grammar-80b70.firebaseio.com",
+    "project_id": "english-grammar-80b70",
+    "storage_bucket": "english-grammar-80b70.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:551898202695:android:79d5495c226a8c77",
+        "android_client_info": {
+          "package_name": "app.english.grammar.craftystudio.englishgrammar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "551898202695-8dcldgr7it6a7lt88jeoc4s6riqd925n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAna9aOL-DrnpAo3zDBpNB0yxt84aOMasI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
