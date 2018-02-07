@@ -3,36 +3,65 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Import" />
-        <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
-        <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
-        <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
-    </group>
+    <item
+        android:id="@+id/nav_daily_quiz"
+        android:icon="@drawable/g4"
+        android:title="Daily Quiz" />
+
 
     <item android:title="Communicate">
         <menu>
             <item
                 android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
+                android:icon="@drawable/g1"
                 android:title="Share" />
             <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:id="@+id/nav_rate"
+                android:icon="@drawable/rate"
+                android:title="Rate Us" />
+            <item
+                android:id="@+id/nav_suggest"
+                android:icon="@drawable/suggest"
+                android:title="Give Suggestion" />
         </menu>
     </item>
+
+    <item android:title="More from Crafty Studio">
+        <menu>
+
+
+            <item
+                android:id="@+id/nav_daily_editorial"
+                android:title="Daily Editorial" />
+
+            <item
+                android:id="@+id/nav_pib"
+                android:title="PIB and AIR News" />
+
+            <item
+                android:id="@+id/nav_aptitude"
+                android:title="Aptitude Master app" />
+
+           <item
+                android:id="@+id/nav_logical_reasoning"
+                android:title="Logical Reasoning app" />
+
+
+            <item
+                android:id="@+id/nav_personality_development"
+                android:title="Personality Development app" />
+
+            <item
+                android:id="@+id/nav_basic_Computer"
+                android:title="Basic Computer App" />
+
+            <item
+                android:id="@+id/nav_short_key"
+                android:title="Computer Short Keys" />
+
+
+        </menu>
+    </item>
+
 
 </menu>

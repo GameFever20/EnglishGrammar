@@ -21,6 +21,7 @@ import com.google.firebase.dynamiclinks.ShortDynamicLink;
 
 import java.util.ArrayList;
 
+import utils.AppRater;
 import utils.FireBaseHandler;
 
 public class DisplayTextActivity extends AppCompatActivity {
@@ -66,6 +67,9 @@ public class DisplayTextActivity extends AppCompatActivity {
             downloadFullData(mMainTopic, mSubTopic);
 
         }
+
+        //App rater when 3 topics opened
+        AppRater.app_launched(DisplayTextActivity.this);
 
 
     }

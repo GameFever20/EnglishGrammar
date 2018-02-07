@@ -4,12 +4,12 @@
 
     <item
         android:id="@+id/navigation_topic"
-        android:icon="@drawable/ic_menu_slideshow"
+        android:icon="@drawable/g3"
         android:title="Study" />
 
     <item
         android:id="@+id/navigation_test_Series"
-        android:icon="@drawable/ic_menu_camera"
+        android:icon="@drawable/g4"
         android:title="Test" />
 
 

@@ -2,9 +2,10 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/action_share"
+        android:icon="@drawable/g1"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
-        android:visible="false"
-        app:showAsAction="never" />
+        android:title="Share"
+        android:visible="true"
+        app:showAsAction="always" />
 </menu>
