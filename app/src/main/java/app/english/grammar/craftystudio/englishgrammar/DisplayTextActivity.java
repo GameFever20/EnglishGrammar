@@ -12,6 +12,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.webkit.WebView;
 
+import com.crashlytics.android.answers.Answers;
+import com.crashlytics.android.answers.CustomEvent;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
@@ -69,8 +71,14 @@ public class DisplayTextActivity extends AppCompatActivity {
         }
 
         //App rater when 3 topics opened
-        AppRater.app_launched(DisplayTextActivity.this);
 
+        try {
+            AppRater.app_launched(DisplayTextActivity.this);
+
+            Answers.getInstance().logCustom(new CustomEvent("Topic Reading").putCustomAttribute("topic", mMainTopic).putCustomAttribute("Sub topic",mSubTopic));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 

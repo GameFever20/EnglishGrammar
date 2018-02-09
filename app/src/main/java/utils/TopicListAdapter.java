@@ -50,7 +50,7 @@ public class TopicListAdapter extends ArrayAdapter<String> {
 
         topicNameTextview.setText((String)mTopicList.get(position));
 
-        topicNameTextview.setOnClickListener(new View.OnClickListener() {
+        convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 clickListener.onItemCLickListener(view,position);

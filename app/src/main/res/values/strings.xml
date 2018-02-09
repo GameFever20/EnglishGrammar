@@ -8,4 +8,8 @@
     <string name="title_activity_display_list">Display List Activity</string>
     <string name="title_activity_display_text">Display Text Activity</string>
     <string name="title_activity_daily_question">Daily Question</string>
+
+    <string name="facebook_app_id">546101205767605</string>
+    <string name="fb_login_protocol_scheme">fb546101205767605</string>
+
 </resources>

@@ -1,13 +1,17 @@
 package app.english.grammar.craftystudio.englishgrammar;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.widget.CardView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -22,6 +26,11 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.crashlytics.android.Crashlytics;
+import com.crashlytics.android.answers.Answers;
+import com.crashlytics.android.answers.CustomEvent;
+
+import io.fabric.sdk.android.Fabric;
 import java.util.ArrayList;
 
 import utils.AppRater;
@@ -46,6 +55,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Fabric.with(this, new Crashlytics());
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -54,10 +64,9 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show();
 
-                uploadQuestion();
+                //uploadQuestion();
             }
         });
 
@@ -85,6 +94,7 @@ public class MainActivity extends AppCompatActivity
 
         fireBaseHandler = new FireBaseHandler();
 
+        setListViewFooter();
 
     }
 
@@ -130,7 +140,7 @@ public class MainActivity extends AppCompatActivity
             public void onDataUpload(boolean isSuccessful) {
 
                 if (isSuccessful) {
-                    Toast.makeText(MainActivity.this, "Date Uploaded", Toast.LENGTH_SHORT).show();
+                  //  Toast.makeText(MainActivity.this, "Date Uploaded", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -157,13 +167,12 @@ public class MainActivity extends AppCompatActivity
         adapter.setOnItemCLickListener(new ClickListener() {
             @Override
             public void onItemCLickListener(View view, int position) {
-                TextView textview = (TextView) view;
 
 
-                Toast.makeText(MainActivity.this, " Selected " + textview.getText().toString(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MainActivity.this, " Selected " + textview.getText().toString(), Toast.LENGTH_SHORT).show();
 
                 try {
-                    // Answers.getInstance().logCustom(new CustomEvent("Topic open").putCustomAttribute("topic", textview.getText().toString()));
+                    Answers.getInstance().logCustom(new CustomEvent("Topic open").putCustomAttribute("topic", mArraylist.get(position)));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -316,6 +325,25 @@ public class MainActivity extends AppCompatActivity
 
     }
 
+    private void setListViewFooter() {
+        View footerView = ((LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.custom_textview, null, false);
+
+        TextView topicNameTextview = (TextView) footerView.findViewById(R.id.custom_textview);
+        topicNameTextview.setText("Enjoying the app Rate us now");
+        topicNameTextview.setTextColor(Color.parseColor("#FFFFFF"));
+
+        CardView cardView = (CardView) footerView.findViewById(R.id.custom_background_cardView);
+        cardView.setCardBackgroundColor(getResources().getColor(R.color.colorPrimary));
+
+        footerView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onRateUs();
+            }
+        });
+        topicAndTestListview.addFooterView(footerView);
+
+    }
 
     public void downloadDateList() {
         fireBaseHandler.downloadDateList(15, new FireBaseHandler.OnDateListlistener() {
@@ -335,18 +363,18 @@ public class MainActivity extends AppCompatActivity
                         mArraylist.add(name);
                     }
 
-                    adapter = new TopicListAdapter(getApplicationContext(), R.layout.custom_textview, mArraylist);
+                    adapter = new TopicListAdapter(MainActivity.this, R.layout.custom_textview, mArraylist);
 
                     adapter.setOnItemCLickListener(new ClickListener() {
                         @Override
                         public void onItemCLickListener(View view, int position) {
-                            TextView textview = (TextView) view;
+                            //TextView textview = (TextView) view;
 
-                            openMainActivity(textview.getText().toString());
+                            openMainActivity(mArraylist.get(position));
                             //  Toast.makeText(TopicActivity.this, "In Test " + " Selected " + textview.getText().toString() + " Postion is " + position, Toast.LENGTH_SHORT).show();
 
                             try {
-                                //   Answers.getInstance().logCustom(new CustomEvent("Daily Quiz open").putCustomAttribute("Date Name", textview.getText().toString()));
+                                Answers.getInstance().logCustom(new CustomEvent("Daily Quiz open").putCustomAttribute("Date Name", mArraylist.get(position)));
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
@@ -384,7 +412,7 @@ public class MainActivity extends AppCompatActivity
         Bundle bundle = new Bundle();
         bundle.putString("Date", Text);
         intent.putExtras(bundle);
-        Toast.makeText(this, Text, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, Text, Toast.LENGTH_SHORT).show();
         startActivity(intent);
 
     }
