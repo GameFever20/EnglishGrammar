@@ -66,7 +66,7 @@ public class DailyQuestionActivity extends AppCompatActivity {
 
         initializeViewPager();
 
-        dateName = getIntent().getExtras().getString("Topic");
+        dateName = getIntent().getExtras().getString("Date");
 
         toolbar.setTitle(dateName);
         setSupportActionBar(toolbar);
@@ -130,7 +130,7 @@ public class DailyQuestionActivity extends AppCompatActivity {
 
     private void initializeViewPager() {
 
-// Instantiate a ViewPager and a PagerAdapter.
+        // Instantiate a ViewPager and a PagerAdapter.
 
         mPagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
         mPager.setAdapter(mPagerAdapter);

@@ -126,7 +126,7 @@ public class FireBaseHandler {
 
         mDatabaseRef = mFirebaseDatabase.getReference().child("Questions/");
 
-        Query myref2 = mDatabaseRef.orderByChild("questionDateName").equalTo("Thu, 6 Feb 2018").limitToLast(limit);
+        Query myref2 = mDatabaseRef.orderByChild("questionDateName").equalTo(dateName).limitToLast(limit);
 
 
 
