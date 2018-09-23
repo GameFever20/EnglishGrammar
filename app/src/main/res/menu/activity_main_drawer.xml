@@ -23,6 +23,10 @@
                 android:id="@+id/nav_suggest"
                 android:icon="@drawable/suggest"
                 android:title="Give Suggestion" />
+
+            <item
+                android:id="@+id/nav_privacy_policy"
+                android:title="Privacy Policy" />
         </menu>
     </item>
 

@@ -504,12 +504,24 @@ public class MainActivity extends AppCompatActivity
             onBasicComputerClick();
         } else if ((id == R.id.nav_short_key)) {
             onShortKeyClick();
+        } else if (id== R.id.nav_privacy_policy){
+            onPrivacyPolicyClick();
         }
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void onPrivacyPolicyClick() {
+        try {
+            String link = "http://aspirantworld.in/privacy-policy";
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(link)));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
     private void onPIBClick() {
